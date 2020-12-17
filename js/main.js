@@ -20,12 +20,12 @@ jQuery(document).ready(function () {
 
                     // scroll to that part of the page
                     gsap.to(window, {
-                        duration: 1.5,
+                        duration: 2,
                         scrollTo: {
                             y: sectionLink,
                             offsetY: 43
                         },
-                        ease: "power1.out"
+                        ease: "expo.out"
                     });
 
                     $(".navbar-collapse").toggleClass("show");
