@@ -45,11 +45,10 @@ if (!function_exists('c9child_enqueue_scripts')) {
 	 */
 	function c9child_enqueue_scripts()
 	{
-		wp_enqueue_script('gsap', '//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js', array('jquery'), '', true);
-		wp_enqueue_script('scrollto', '//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollToPlugin3.min.js', array('jquery'), '', true);
-		wp_enqueue_script('scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', '', '', true);
-
-		wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/main.js', array('jquery'));
+		wp_enqueue_script('gsap', get_stylesheet_directory_uri() . '/js/gsap.min.js', array('jquery'), '', true);
+		wp_enqueue_script('scrollto', get_stylesheet_directory_uri() . '/js/ScrollToPlugin.min.js', array('jquery'), '', true);
+		wp_enqueue_script('scrollmagic', get_stylesheet_directory_uri() . '/js/ScrollTrigger.min.js', '', '', true);
+		wp_enqueue_script('c9music-child-script', get_stylesheet_directory_uri() . '/js/main.js', array('jquery'), '', true);
 	}
 }
 
@@ -61,3 +60,8 @@ if (!function_exists('c9child_enqueue_editor_styles')) {
 		wp_enqueue_style('c9-child-style', get_stylesheet_directory_uri() . '/style.css', array('c9-client-styles'));
 	}
 }
+
+
+
+/* remove jetpack messages */
+add_filter('woocommerce_helper_suppress_admin_notices', '__return_true');
